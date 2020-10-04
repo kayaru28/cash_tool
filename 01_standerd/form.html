@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>title</title>
+<script>
+
+</script></head>
+<body>
+    <form action="mail.php" method="post">
+        <p><label>月：
+            <select name="blood">
+                <option value="1">01</option>
+                <option value="2">02</option>
+                <option value="3">03</option>
+                <option value="4">04</option>
+            </select>
+        </label></p>
+        <p><label>日：<input type="text" name="day" size="20"></label></p>
+
+        <fieldset>
+        <legend>大分類</legend>
+        <p><label><input type="radio" name="sex" value="male">食費</label></p>
+        <p><label><input type="radio" name="sex" value="female">その他</label></p>
+        <p><label><input type="radio" name="sex" value="female">特殊</label></p>
+        </fieldset>
+
+        <fieldset>
+        <legend>趣味</legend>
+        <p><label><input type="checkbox" name="hobby" value="sports">スポーツ</label></p>
+        <p><label><input type="checkbox" name="hobby" value="reading">読書</label></p>
+        <p><label><input type="checkbox" name="hobby" value="music">音楽</label></p>
+        <p><label><input type="checkbox" name="hobby" value="travel">旅行</label></p>
+        </fieldset>
+        <p><label>コメント：<br><textarea name="comments" rows="2" cols="40"></textarea></label></p>
+        <p><input type="submit" value="送信"><input type="reset" value="リセット"></p>
+        </form> 
+</body>
+</html>
+
