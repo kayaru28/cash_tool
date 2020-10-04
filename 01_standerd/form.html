@@ -8,14 +8,22 @@
 <body>
     <form action="mail.php" method="post">
         <p><label>月：
-            <select name="blood">
+            <select name="mm">
                 <option value="1">01</option>
                 <option value="2">02</option>
                 <option value="3">03</option>
                 <option value="4">04</option>
+                <option value="5">05</option>
+                <option value="6">06</option>
+                <option value="7">07</option>
+                <option value="8">08</option>
+                <option value="9">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
             </select>
         </label></p>
-        <p><label>日：<input type="text" name="day" size="20"></label></p>
+        <p><label>日：<input type="text" name="dd" size="20"></label></p>
 
         <fieldset>
         <legend>大分類</legend>
@@ -26,11 +34,12 @@
 
         <fieldset>
         <legend>趣味</legend>
-        <p><label><input type="checkbox" name="hobby" value="sports">スポーツ</label></p>
-        <p><label><input type="checkbox" name="hobby" value="reading">読書</label></p>
-        <p><label><input type="checkbox" name="hobby" value="music">音楽</label></p>
-        <p><label><input type="checkbox" name="hobby" value="travel">旅行</label></p>
+        <p><label><input type="radio" name="hobby" value="sports">スポーツ</label></p>
+        <p><label><input type="radio" name="hobby" value="reading">読書</label></p>
+        <p><label><input type="radio" name="hobby" value="music">音楽</label></p>
+        <p><label><input type="radio" name="hobby" value="travel">旅行</label></p>
         </fieldset>
+        <p><label>価格：<input type="text" name="value" size="20"></label></p>
         <p><label>コメント：<br><textarea name="comments" rows="2" cols="40"></textarea></label></p>
         <p><input type="submit" value="送信"><input type="reset" value="リセット"></p>
         </form> 
