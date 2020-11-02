@@ -24,6 +24,7 @@ def rpspage():
 def rpsResultpage():
     get_val = int(request.form["value"])
     duel_val = int(random.random()*3)
+
     if get_val == duel_val:
         res = "draw"
     elif get_val == 0 and duel_val == 2:
@@ -32,6 +33,7 @@ def rpsResultpage():
         res = "win"
     else:
         res = "loose"
+    
     duel_time = datetime.datetime.today().strftime("%Y/%m/%d/%H/%M/%S")
     return render_template('rps_result.html'
         , get_val=get_val
