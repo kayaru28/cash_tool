@@ -1,3 +1,6 @@
+
+import mysql_proc as sql
+
 from flask import *  # 必要なライブラリのインポート
 import random
 import datetime
@@ -35,6 +38,8 @@ def rpsResultpage():
         res = "loose"
     
     duel_time = datetime.datetime.today().strftime("%Y/%m/%d/%H/%M/%S")
+
+    sql.recordedBattleResult("GUEST",get_val,res)
     return render_template('rps_result.html'
         , get_val=get_val
         , duel_val=duel_val

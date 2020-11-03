@@ -35,7 +35,7 @@ def getSession(engine):
     session=SessionClass()
     return session
 
-def rps_insert(br:BattleResult ):
+def rpsInsert(br:BattleResult ):
 
     engine = getEngineBattleHistory()
     Base=declarative_base(bind=engine)
@@ -56,13 +56,18 @@ def rps_insert(br:BattleResult ):
 
     session.add(insert_battle_history)
     session.commit()
-
     session.close()
 
-br=BattleResult()
-br.name = "ss"
-br.choice_id = 1
-br.result = "win"
-rps_insert(br)
+def recordedBattleResult(name,choice_id,result):
+    br=BattleResult()
+    br.name = name
+    br.choice_id = choice_id
+    br.result = result
+    rpsInsert(br) 
+
+
+
+if __name__ == '__main__':
+    recordedBattleResult("SS",1,"win")
 
 
