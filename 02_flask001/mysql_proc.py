@@ -20,8 +20,11 @@ def getRandomId9():
 
 class BattleResult():
     time_now = datetime.datetime.now()
+    name = "NA"
+    choice_id = 0
+    result = ""
 
-def rps_insert():
+def rps_insert(br:BattleResult ):
 
     engine_key = getEngineKey(db_name_rps)
     engine=create_engine(engine_key)
@@ -34,13 +37,23 @@ def rps_insert():
     session=SessionClass()
 
     tmpid = getRandomId9()
-    insert_battle_history=BattleHistory(id=tmpid,time=datetime.datetime.now(), name="test", choice_id=20,result="win")
+    insert_battle_history=BattleHistory(
+        id          = tmpid,
+        time        = br.time_now,
+        name        = br.name,
+        choice_id   = br.choice_id,
+        result      = br.result
+    )
 
     session.add(insert_battle_history)
     session.commit()
 
     session.close()
 
-rps_insert()
+br=BattleResult()
+br.name = "ss"
+br.choice_id = 1
+br.result = "win"
+rps_insert(br)
 
 
