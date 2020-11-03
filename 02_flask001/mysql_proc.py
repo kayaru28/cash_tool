@@ -1,8 +1,9 @@
+import random
+import datetime
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-import random
 
 root_user = "root"
 root_pass = "Root-0904"
@@ -17,6 +18,8 @@ def getEngineKey(db_name):
 def getRandomId9():
     return int(random.random()*1000000000)
 
+class BattleResult():
+    time_now = datetime.datetime.now()
 
 def rps_insert():
 
@@ -31,7 +34,7 @@ def rps_insert():
     session=SessionClass()
 
     tmpid = getRandomId9()
-    insert_battle_history=BattleHistory(id=tmpid,time="2018-04-10 12:00:00", name="test", choice_id=20,result="win")
+    insert_battle_history=BattleHistory(id=tmpid,time=datetime.datetime.now(), name="test", choice_id=20,result="win")
 
     session.add(insert_battle_history)
     session.commit()
