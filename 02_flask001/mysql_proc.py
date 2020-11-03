@@ -24,19 +24,28 @@ class BattleResult():
     choice_id = 0
     result = ""
 
-def rps_insert(br:BattleResult ):
-
+def getEngineBattleHistory():
     engine_key = getEngineKey(db_name_rps)
     engine=create_engine(engine_key)
+
+    return engine
+
+def getSession(engine):
+    SessionClass=sessionmaker(engine)
+    session=SessionClass()
+    return session
+
+def rps_insert(br:BattleResult ):
+
+    engine = getEngineBattleHistory()
     Base=declarative_base(bind=engine)
     class BattleHistory(Base):
         __tablename__="battle_history" 
         __table_args__={"autoload": True}
 
-    SessionClass=sessionmaker(engine)
-    session=SessionClass()
-
+    session = getSession(engine)
     tmpid = getRandomId9()
+
     insert_battle_history=BattleHistory(
         id          = tmpid,
         time        = br.time_now,
