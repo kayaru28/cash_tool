@@ -30,6 +30,13 @@ def getEngineBattleHistory():
 
     return engine
 
+engine = getEngineBattleHistory()
+Base=declarative_base(bind=engine)
+
+class BattleHistory(Base):
+    __tablename__="battle_history" 
+    __table_args__={"autoload": True}
+
 def getSession(engine):
     SessionClass=sessionmaker(engine)
     session=SessionClass()
@@ -37,11 +44,8 @@ def getSession(engine):
 
 def rpsInsert(br:BattleResult ):
 
-    engine = getEngineBattleHistory()
-    Base=declarative_base(bind=engine)
-    class BattleHistory(Base):
-        __tablename__="battle_history" 
-        __table_args__={"autoload": True}
+
+
 
     session = getSession(engine)
     tmpid = getRandomId9()
