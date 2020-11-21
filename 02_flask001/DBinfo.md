@@ -1,17 +1,22 @@
-
+# login
+mysql --user=root --password=mypass 
 
 # DB = rps
 CREATE DATABASE rps;
 
 ## table
 create table rps.battle_history(
-    id int,
     time timestamp,
+    id int,
     name varchar(10), 
     choice_id int,
     result varchar(10) 
 );
-alter table rps.battle_history add primary key (id,time); 
+alter table rps.battle_history add primary key (time,id); 
+
+
+alter table rps.battle_history DROP PRIMARY KEY,add primary key (time,id); 
+
 
 create table rps.id_choice(
     choice_id int,
@@ -50,17 +55,6 @@ pip install sqlalchemy
 
 
 
-
-
-
-
-
-
-
-
-
-
-pip install mysql-connector-python
 
 
 
