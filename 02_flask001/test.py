@@ -6,6 +6,8 @@ import random
 import datetime
 app = Flask(__name__)  # アプリの設定
 
+def formatRatio(ratio):
+    return f'{ratio:2}'
 
 @app.route("/")  # どのページで実行する関数か設定
 def main():
@@ -18,6 +20,13 @@ def formpage():
 @app.route("/test", methods=["GET", "POST"])
 def testpage():
     return render_template("test.html")
+
+@app.route("/ratio", methods=["GET", "POST"])
+def ratiopage():
+    battle_count = sql.getBattleCount()
+    win_count = sql.getBattleCountForResult("win")
+    victory_ratio = float(win_count) / battle_count
+    return "your victory ratio is " + formatRatio(victory_ratio)
 
 @app.route("/rps", methods=["GET", "POST"])
 def rpspage():
