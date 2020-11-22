@@ -29,6 +29,9 @@ show tables from rps;
 drop table rps.battle_history;
 SELECT * FROM rps.battle_history;
 
+SELECT COUNT(*) FROM rps.battle_history WHERE result='win';
+
+
 # install
 
 ## mysql
