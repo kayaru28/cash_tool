@@ -25,8 +25,8 @@ def testpage():
 def ratiopage():
     battle_count = sql.getBattleCount()
     win_count = sql.getBattleCountForResult("win")
-    victory_ratio = float(win_count) / battle_count
-    return "your victory ratio is " + formatRatio(victory_ratio)
+    win_ratio = float(win_count) / battle_count
+    return "your win ratio is " + formatRatio(win_ratio)
 
 @app.route("/rps", methods=["GET", "POST"])
 def rpspage():
