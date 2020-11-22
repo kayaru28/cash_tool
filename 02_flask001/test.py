@@ -7,7 +7,7 @@ import datetime
 app = Flask(__name__)  # アプリの設定
 
 def formatRatio(ratio):
-    return f'{ratio:2}'
+    return format(ratio, '.2f')
 
 @app.route("/")  # どのページで実行する関数か設定
 def main():

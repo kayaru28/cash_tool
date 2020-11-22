@@ -102,5 +102,8 @@ def recordedBattleResult(name,choice_id,result):
 
 if __name__ == '__main__':
     #recordedBattleResult("SS",1,"win")
-    print(getRpsVictoryRatio())
-
+    battle_count = getBattleCount()
+    win_count = getBattleCountForResult("win")
+    victory_ratio = float(win_count) / battle_count
+    print("your victory ratio is " +  format(victory_ratio, '.2f'))
+    
